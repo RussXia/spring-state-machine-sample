@@ -23,14 +23,26 @@ public class OrderController {
         return orderService.createOrder();
     }
 
-    @GetMapping("/{event}/{orderId}")
-    public String trigger(@PathVariable("event") OrderEventEnum event,
-                          @PathVariable("orderId") String orderId) {
-        if (event == null) {
-            return "not supported event";
-        }
-        return orderService.trigger(event, orderId);
+    @GetMapping("/pay/{orderId}")
+    public String pay(@PathVariable("orderId") String orderId) {
+        return orderService.trigger(OrderEventEnum.PAY, orderId);
     }
+
+    @GetMapping("/delivery/{orderId}")
+    public String delivery(@PathVariable("orderId") String orderId) {
+        return orderService.trigger(OrderEventEnum.DELIVERY, orderId);
+    }
+
+    @GetMapping("/receive/{orderId}")
+    public String receive(@PathVariable("orderId") String orderId) {
+        return orderService.trigger(OrderEventEnum.RECEIVE, orderId);
+    }
+
+    @GetMapping("/reject/{orderId}")
+    public String reject(@PathVariable("orderId") String orderId) {
+        return orderService.trigger(OrderEventEnum.REJECT, orderId);
+    }
+
 
     @GetMapping("/info/{orderId}")
     public String orderInfo(@PathVariable("orderId") String orderId) {

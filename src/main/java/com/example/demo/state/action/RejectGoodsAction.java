@@ -24,6 +24,6 @@ public class RejectGoodsAction extends AbstractBaseAction {
         Assert.notNull(order, "order can not be null");
         log.info("send reject message,orderId:{}", order.getId());
         // mock
-        throw new RuntimeException("reject goods failed");
+        //throw new RuntimeException("reject goods failed");
     }
 }

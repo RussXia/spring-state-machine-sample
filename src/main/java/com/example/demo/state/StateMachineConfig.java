@@ -81,7 +81,7 @@ public class StateMachineConfig extends StateMachineConfigurerAdapter<OrderStatu
                 .and()
                 .withExternal()
                 .source(OrderStatusEnum.WAITING_FOR_RECEIVE).target(OrderStatusEnum.REJECTED)
-                .event(OrderEventEnum.REJECT_GOODS).action(rejectGoodsAction, errorAction);
+                .event(OrderEventEnum.REJECT).action(rejectGoodsAction, errorAction);
     }
 
     @Bean("orderStateMachinePersister")

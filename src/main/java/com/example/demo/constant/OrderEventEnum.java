@@ -16,7 +16,7 @@ public enum OrderEventEnum {
     PAY(1, "支付"),
     DELIVERY(2, "发货"),
     RECEIVE(3, "收货"),
-    REJECT_GOODS(4, "拒收"),
+    REJECT(4, "拒收"),
     ;
     private final int code;
 
